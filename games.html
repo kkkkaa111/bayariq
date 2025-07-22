@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيـــارق - الألعاب</title>
+    <link rel="stylesheet" href="games-style.css">
+</head>
+<body>
+    <!-- الشريحة الأولى - اختيار نوع اللعبة -->
+    <div id="game-selection-slide" class="slide">
+        <div class="slide-content">
+            <!-- الجزء العلوي مع الشعار -->
+            <div class="top-section">
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Bayareq Logo" class="logo-image">
+                </div>
+                <div class="page-indicator">
+                    <span>3 من 19</span>
+                    <div class="menu-icon">☰</div>
+                </div>
+            </div>
+            
+            <!-- الجزء الأوسط مع خيارات اللعبة -->
+            <div class="middle-section">
+                <div class="game-title">
+                    <h2>تلعب :</h2>
+                </div>
+                
+                <div class="game-options">
+                    <div class="game-option">
+                        <div class="game-icon youth-icon">
+                            <!-- أيقونة الشباب -->
+                            <div class="youth-figures"></div>
+                        </div>
+                        <button class="game-button youth-button">بيارق مع الشباب</button>
+                    </div>
+                    
+                    <div class="game-option">
+                        <div class="game-icon family-icon">
+                            <!-- أيقونة العائلة -->
+                            <div class="family-figures"></div>
+                        </div>
+                        <button class="game-button family-button">بيارق أولادين</button>
+                    </div>
+                </div>
+                
+                <div class="side-notes">
+                    <p>هنا يكون اجباري الضغط على بيارق مع الشباب فقط</p>
+                    <p>الاولادين مغلق</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الشريحة الثانية - اختيار الفئة -->
+    <div id="category-selection-slide" class="slide hidden">
+        <div class="slide-content">
+            <!-- الجزء العلوي مع الشعار -->
+            <div class="top-section">
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Bayareq Logo" class="logo-image">
+                </div>
+            </div>
+            
+            <!-- الجزء الأوسط مع النموذج -->
+            <div class="middle-section">
+                <div class="country-input">
+                    <label for="country">اسم الدولة</label>
+                    <input type="text" id="country" class="country-field" placeholder="أدخل اسم الدولة">
+                </div>
+                
+                <div class="category-note">
+                    <p>أختر الفئة التي تريدها</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <button class="category-btn">المؤسسات السعودية</button>
+                    <button class="category-btn">المشروع الشعري</button>
+                    <button class="category-btn">الاحتفال الشعبية</button>
+                    <button class="category-btn">احداث ومعارك</button>
+                    <button class="category-btn">أكلت ومشروبات</button>
+                    <button class="category-btn">رجال وقادة</button>
+                    <button class="category-btn">اجتمع فئتك الخاصة</button>
+                    <button class="category-btn">مدن ومحافظات</button>
+                </div>
+                
+                <div class="side-notes-2">
+                    <p>هنا يوجد ثلاث فئات فقط وهي الموروث الشعبي - الأكلات - والمشروبات والمناسبات السعودية</p>
+                    <p>يعني ما يقدر ينقر إلا على الثلاث هذي الباقي اجعله مغلق</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="games-script.js"></script>
+</body>
+</html>
+
