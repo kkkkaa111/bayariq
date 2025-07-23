@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيارق - الأسئلة</title>
+    <link rel="stylesheet" href="questions-style.css">
+</head>
+<body>
+    <!-- صفحة شبكة الأسئلة -->
+    <div class="page" id="questionsGrid">
+        <div class="container">
+            <!-- الشبكة العلوية -->
+            <div class="questions-grid">
+                <div class="category-header">اللهجات السعودية</div>
+                <div class="category-header">الموروث الشعبي</div>
+                <div class="category-header">المناسبات السعودية</div>
+                <div class="category-header">أكلت ومشروبات</div>
+                
+                <div class="point-btn" data-category="اللهجات السعودية" data-points="400">400</div>
+                <div class="point-btn" data-category="الموروث الشعبي" data-points="400">400</div>
+                <div class="point-btn" data-category="المناسبات السعودية" data-points="400">400</div>
+                <div class="point-btn" data-category="أكلت ومشروبات" data-points="400">400</div>
+                
+                <div class="point-btn" data-category="اللهجات السعودية" data-points="300">300</div>
+                <div class="point-btn" data-category="الموروث الشعبي" data-points="300">300</div>
+                <div class="point-btn" data-category="المناسبات السعودية" data-points="300">300</div>
+                <div class="point-btn" data-category="أكلت ومشروبات" data-points="300">300</div>
+                
+                <div class="point-btn" data-category="اللهجات السعودية" data-points="200">200</div>
+                <div class="point-btn" data-category="الموروث الشعبي" data-points="200">200</div>
+                <div class="point-btn selected" data-category="المناسبات السعودية" data-points="200">200</div>
+                <div class="point-btn" data-category="أكلت ومشروبات" data-points="200">200</div>
+                
+                <div class="point-btn" data-category="اللهجات السعودية" data-points="100">100</div>
+                <div class="point-btn" data-category="الموروث الشعبي" data-points="100">100</div>
+                <div class="point-btn selected" data-category="المناسبات السعودية" data-points="100">100</div>
+                <div class="point-btn" data-category="أكلت ومشروبات" data-points="100">100</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- صفحة السؤال -->
+    <div class="page hidden" id="questionPage">
+        <div class="container">
+            <div class="question-card">
+                <div class="question-header">الموقت</div>
+                <div class="question-image">
+                    <img id="questionImg" src="" alt="صورة السؤال">
+                </div>
+                <div class="question-text" id="questionText">ما اسم الفن الشعبي الذي يؤدى في المملكة؟</div>
+                <div class="answer-options">
+                    <div class="answer-row">
+                        <button class="answer-btn" data-answer="أ">اللحجة الشمالية</button>
+                        <button class="answer-btn" data-answer="ب">العرضة الجنوبية</button>
+                    </div>
+                    <div class="answer-row">
+                        <button class="answer-btn" data-answer="ج">الفروسي</button>
+                        <button class="answer-btn correct" data-answer="د">العرضة السعودية</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- صفحة النتيجة -->
+    <div class="page hidden" id="resultPage">
+        <div class="container">
+            <div class="result-card">
+                <div class="result-message correct">
+                    <h2>إجابة صحيحة!</h2>
+                    <p>تم إضافة النقاط إلى رصيدك</p>
+                </div>
+                <div class="result-message wrong hidden">
+                    <h2>إجابة خاطئة!</h2>
+                    <p>الإجابة الصحيحة هي: العرضة السعودية</p>
+                </div>
+                <button class="back-btn" onclick="goBackToGrid()">العودة للشبكة</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions-script.js"></script>
+</body>
+</html>
+

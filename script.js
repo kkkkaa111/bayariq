@@ -2,12 +2,65 @@
 document.addEventListener('DOMContentLoaded', function() {
     const welcomeSlide = document.getElementById('welcome-slide');
     const loginSlide = document.getElementById('login-slide');
+    const loginForm = document.querySelector('.login-form');
     
     // إخفاء الشريحة الأولى وإظهار الثانية بعد 3 ثوانٍ
     setTimeout(function() {
         welcomeSlide.classList.add('hidden');
         loginSlide.classList.remove('hidden');
     }, 3000);
+    
+    // التعامل مع نموذج تسجيل الدخول
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.querySelector('input[type="email"]').value;
+            const password = document.querySelector('input[type="password"]').value;
+            
+            if (!email || !password) {
+                alert('يرجى ملء جميع الحقول');
+                return;
+            }
+            
+            // التحقق من صحة البريد الإلكتروني
+            if (!bayareqDB.validateEmail(email)) {
+                alert('يرجى إدخال بريد إلكتروني صحيح');
+                return;
+            }
+            
+            // محاولة تسجيل الدخول
+            const loginResult = bayareqDB.loginVisitor(email, password);
+            
+            if (loginResult.success) {
+                // تسجيل الدخول نجح
+                alert('مرحباً بك! تم تسجيل الدخول بنجاح');
+                
+                // الانتقال إلى صفحة الألعاب
+                window.location.href = 'games.html';
+            } else {
+                // فشل تسجيل الدخول - محاولة إنشاء حساب جديد
+                const registerResult = bayareqDB.addVisitor({
+                    email: email,
+                    password: password,
+                    name: email.split('@')[0] // استخدام الجزء الأول من البريد كاسم مؤقت
+                });
+                
+                if (registerResult.success) {
+                    // تم إنشاء الحساب بنجاح
+                    alert('تم إنشاء حساب جديد وتسجيل الدخول بنجاح!');
+                    
+                    // تسجيل الدخول تلقائياً
+                    bayareqDB.loginVisitor(email, password);
+                    
+                    // الانتقال إلى صفحة الألعاب
+                    window.location.href = 'games.html';
+                } else {
+                    alert('حدث خطأ: ' + registerResult.error);
+                }
+            }
+        });
+    }
     
     // إضافة تأثيرات تفاعلية للحقول
     const inputs = document.querySelectorAll('.form-input');
@@ -48,4 +101,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
