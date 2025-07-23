@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // زر بدء اللعبة - الوحيد القابل للنقر حسب الملاحظة
     if (startGameBtn) {
         startGameBtn.addEventListener('click', function() {
-            // الانتقال لصفحة الأسئلة أو اللعبة الفعلية
-            window.location.href = 'questions.html';
+            // الانتقال لصفحة الأسئلة الأصلية (شبكة الأسئلة)
+            window.location.href = 'challenge.html';
         });
     }
     

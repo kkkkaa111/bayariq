@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // يمكن إضافة منطق للانتقال لصفحة اللعبة الفعلية
                 console.log('تم اختيار الفئة:', this.textContent);
                 
-                // مثال: الانتقال لصفحة التحدي
-                window.location.href = 'challenge.html';
+                // الانتقال لصفحة إعداد الفرق
+                window.location.href = 'team-setup.html';
             }
         });
         
