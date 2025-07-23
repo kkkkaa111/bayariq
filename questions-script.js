@@ -1,7 +1,5 @@
 // انتظار تحميل الصفحة
 document.addEventListener('DOMContentLoaded', function() {
-    const gameTypeSlide = document.getElementById('game-type-slide');
-    const categoriesSlide = document.getElementById('categories-slide');
     const youthOption = document.getElementById('youth-option');
     const kidsOption = document.getElementById('kids-option');
     
@@ -9,9 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (youthOption) {
         youthOption.addEventListener('click', function() {
             if (!this.classList.contains('disabled')) {
-                // إخفاء الشريحة الأولى وإظهار الثانية
-                gameTypeSlide.classList.add('hidden');
-                categoriesSlide.classList.remove('hidden');
+                // إضافة تأثير بصري للاختيار
+                this.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
             }
         });
     }
@@ -30,9 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
     categoryBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             if (this.classList.contains('active')) {
-                // يمكن إضافة منطق للانتقال لصفحة اللعبة الفعلية
-                console.log('تم اختيار الفئة:', this.textContent);
-                
                 // الانتقال لصفحة إعداد الفرق
                 window.location.href = 'team-setup.html';
             }
@@ -50,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // التعامل مع حقل اسم الدولة
+    // التعامل مع حقل اسم الجولة
     const countryField = document.querySelector('.country-field');
     
     if (countryField) {

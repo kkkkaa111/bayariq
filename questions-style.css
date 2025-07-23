@@ -31,27 +31,30 @@ body {
 
 .slide-content {
     width: 350px;
-    height: 600px;
+    height: 700px;
     background-color: #c5d4c5;
     border-radius: 20px;
     position: relative;
-    overflow: hidden;
+    overflow-y: auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* الجزء العلوي مع الشعار */
 .top-section {
-    height: 120px;
+    height: 100px;
     background-color: #c5d4c5;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .logo-container {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     background-color: white;
     border-radius: 15px;
     display: flex;
@@ -61,19 +64,27 @@ body {
 }
 
 .logo-image {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
 }
 
 /* الجزء الأوسط */
 .middle-section {
-    height: 480px;
     background-color: white;
-    padding: 30px 20px;
+    padding: 20px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 600px;
+}
+
+/* قسم اختيار نوع اللعبة */
+.game-section {
+    width: 100%;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
 }
 
 /* تصميم الشريحة الأولى - اختيار نوع اللعبة */
@@ -142,6 +153,11 @@ body {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
+}
+
+/* قسم الفئات */
+.categories-section {
+    width: 100%;
 }
 
 /* تصميم الشريحة الثانية - اختيار الفئات */

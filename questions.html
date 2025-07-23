@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="questions-style.css">
 </head>
 <body>
-    <!-- الشريحة الأولى - اختيار نوع اللعبة -->
-    <div id="game-type-slide" class="slide">
+    <!-- الشريحة الموحدة -->
+    <div id="unified-slide" class="slide">
         <div class="slide-content">
             <!-- الجزء العلوي مع الشعار -->
             <div class="top-section">
@@ -17,62 +17,52 @@
                 </div>
             </div>
             
-            <!-- الجزء الأوسط مع خيارات اللعبة -->
+            <!-- الجزء الأوسط -->
             <div class="middle-section">
-                <div class="game-title">
-                    <h1>تلعب :</h1>
-                </div>
-                
-                <div class="game-options">
-                    <div class="game-option active" id="youth-option">
-                        <div class="option-icon">
-                            <div class="people-icon youth-icon"></div>
-                        </div>
-                        <div class="option-text">بيارق مع الشباب</div>
+                <!-- قسم اختيار نوع اللعبة -->
+                <div class="game-section">
+                    <div class="game-title">
+                        <h1>تلعب :</h1>
                     </div>
                     
-                    <div class="game-option disabled" id="kids-option">
-                        <div class="option-icon">
-                            <div class="people-icon kids-icon"></div>
+                    <div class="game-options">
+                        <div class="game-option active" id="youth-option">
+                            <div class="option-icon">
+                                <div class="people-icon youth-icon"></div>
+                            </div>
+                            <div class="option-text">بيارق مع الشباب</div>
                         </div>
-                        <div class="option-text">بيارق أولادين</div>
+                        
+                        <div class="game-option disabled" id="kids-option">
+                            <div class="option-icon">
+                                <div class="people-icon kids-icon"></div>
+                            </div>
+                            <div class="option-text">بيارق أولادين</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- الشريحة الثانية - اختيار الفئات -->
-    <div id="categories-slide" class="slide hidden">
-        <div class="slide-content">
-            <!-- الجزء العلوي مع الشعار -->
-            <div class="top-section">
-                <div class="logo-container">
-                    <img src="logo.jpg" alt="Bayareq Logo" class="logo-image">
-                </div>
-            </div>
-            
-            <!-- الجزء الأوسط مع الفئات -->
-            <div class="middle-section">
-                <div class="country-input">
-                    <p class="input-label">اسم الجولة</p>
-                    <input type="text" placeholder="ادخل اسم الجولة" class="country-field">
-                    <div class="divider-line"></div>
-                </div>
                 
-                <div class="category-text">
-                    <p>أختر الفئة التي تريدها</p>
-                </div>
-                
-                <div class="categories-grid">
-                    <div class="category-btn active" data-category="الموروث الشعبي">الموروث الشعبي</div>
-                    <div class="category-btn active" data-category="المناسبات السعودية">المناسبات السعودية</div>
-                    <div class="category-btn disabled" data-category="الأمثال الشعبية">الأمثال الشعبية</div>
-                    <div class="category-btn disabled" data-category="لهجات والمفردات">لهجات والمفردات</div>
-                    <div class="category-btn disabled" data-category="رجال وقادة">رجال وقادة</div>
-                    <div class="category-btn active" data-category="أكلات ومشروبات">أكلات ومشروبات</div>
-                    <div class="category-btn disabled" data-category="مدن ومحافظات">مدن ومحافظات</div>
-                    <div class="category-btn disabled" data-category="اصنع فئتك الخاصة">اصنع فئتك الخاصة</div>
+                <!-- قسم اسم الجولة والفئات -->
+                <div class="categories-section">
+                    <div class="country-input">
+                        <p class="input-label">اسم الجولة</p>
+                        <input type="text" placeholder="ادخل اسم الجولة" class="country-field">
+                    </div>
+                    
+                    <div class="category-text">
+                        <p>أختر الفئة التي تريدها</p>
+                    </div>
+                    
+                    <div class="categories-grid">
+                        <div class="category-btn active" data-category="الموروث الشعبي">الموروث الشعبي</div>
+                        <div class="category-btn active" data-category="المناسبات السعودية">المناسبات السعودية</div>
+                        <div class="category-btn disabled" data-category="الأمثال الشعبية">الأمثال الشعبية</div>
+                        <div class="category-btn disabled" data-category="لهجات والمفردات">لهجات والمفردات</div>
+                        <div class="category-btn disabled" data-category="رجال وقادة">رجال وقادة</div>
+                        <div class="category-btn active" data-category="أكلات ومشروبات">أكلات ومشروبات</div>
+                        <div class="category-btn disabled" data-category="مدن ومحافظات">مدن ومحافظات</div>
+                        <div class="category-btn disabled" data-category="اصنع فئتك الخاصة">اصنع فئتك الخاصة</div>
+                    </div>
                 </div>
             </div>
         </div>
