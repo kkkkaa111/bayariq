@@ -7,75 +7,71 @@
     <link rel="stylesheet" href="questions-style.css">
 </head>
 <body>
-    <!-- صفحة شبكة الأسئلة -->
-    <div class="page" id="questionsGrid">
-        <div class="container">
-            <!-- الشبكة العلوية -->
-            <div class="questions-grid">
-                <div class="category-header">اللهجات السعودية</div>
-                <div class="category-header">الموروث الشعبي</div>
-                <div class="category-header">المناسبات السعودية</div>
-                <div class="category-header">أكلت ومشروبات</div>
-                
-                <div class="point-btn" data-category="اللهجات السعودية" data-points="400">400</div>
-                <div class="point-btn" data-category="الموروث الشعبي" data-points="400">400</div>
-                <div class="point-btn" data-category="المناسبات السعودية" data-points="400">400</div>
-                <div class="point-btn" data-category="أكلت ومشروبات" data-points="400">400</div>
-                
-                <div class="point-btn" data-category="اللهجات السعودية" data-points="300">300</div>
-                <div class="point-btn" data-category="الموروث الشعبي" data-points="300">300</div>
-                <div class="point-btn" data-category="المناسبات السعودية" data-points="300">300</div>
-                <div class="point-btn" data-category="أكلت ومشروبات" data-points="300">300</div>
-                
-                <div class="point-btn" data-category="اللهجات السعودية" data-points="200">200</div>
-                <div class="point-btn" data-category="الموروث الشعبي" data-points="200">200</div>
-                <div class="point-btn selected" data-category="المناسبات السعودية" data-points="200">200</div>
-                <div class="point-btn" data-category="أكلت ومشروبات" data-points="200">200</div>
-                
-                <div class="point-btn" data-category="اللهجات السعودية" data-points="100">100</div>
-                <div class="point-btn" data-category="الموروث الشعبي" data-points="100">100</div>
-                <div class="point-btn selected" data-category="المناسبات السعودية" data-points="100">100</div>
-                <div class="point-btn" data-category="أكلت ومشروبات" data-points="100">100</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- صفحة السؤال -->
-    <div class="page hidden" id="questionPage">
-        <div class="container">
-            <div class="question-card">
-                <div class="question-header">الموقت</div>
-                <div class="question-image">
-                    <img id="questionImg" src="" alt="صورة السؤال">
+    <!-- الشريحة الأولى - اختيار نوع اللعبة -->
+    <div id="game-type-slide" class="slide">
+        <div class="slide-content">
+            <!-- الجزء العلوي مع الشعار -->
+            <div class="top-section">
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Bayareq Logo" class="logo-image">
                 </div>
-                <div class="question-text" id="questionText">ما اسم الفن الشعبي الذي يؤدى في المملكة؟</div>
-                <div class="answer-options">
-                    <div class="answer-row">
-                        <button class="answer-btn" data-answer="أ">اللحجة الشمالية</button>
-                        <button class="answer-btn" data-answer="ب">العرضة الجنوبية</button>
+            </div>
+            
+            <!-- الجزء الأوسط مع خيارات اللعبة -->
+            <div class="middle-section">
+                <div class="game-title">
+                    <h1>تلعب :</h1>
+                </div>
+                
+                <div class="game-options">
+                    <div class="game-option active" id="youth-option">
+                        <div class="option-icon">
+                            <div class="people-icon youth-icon"></div>
+                        </div>
+                        <div class="option-text">بيارق مع الشباب</div>
                     </div>
-                    <div class="answer-row">
-                        <button class="answer-btn" data-answer="ج">الفروسي</button>
-                        <button class="answer-btn correct" data-answer="د">العرضة السعودية</button>
+                    
+                    <div class="game-option disabled" id="kids-option">
+                        <div class="option-icon">
+                            <div class="people-icon kids-icon"></div>
+                        </div>
+                        <div class="option-text">بيارق أولادين</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- صفحة النتيجة -->
-    <div class="page hidden" id="resultPage">
-        <div class="container">
-            <div class="result-card">
-                <div class="result-message correct">
-                    <h2>إجابة صحيحة!</h2>
-                    <p>تم إضافة النقاط إلى رصيدك</p>
+    <!-- الشريحة الثانية - اختيار الفئات -->
+    <div id="categories-slide" class="slide hidden">
+        <div class="slide-content">
+            <!-- الجزء العلوي مع الشعار -->
+            <div class="top-section">
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Bayareq Logo" class="logo-image">
                 </div>
-                <div class="result-message wrong hidden">
-                    <h2>إجابة خاطئة!</h2>
-                    <p>الإجابة الصحيحة هي: العرضة السعودية</p>
+            </div>
+            
+            <!-- الجزء الأوسط مع الفئات -->
+            <div class="middle-section">
+                <div class="country-input">
+                    <input type="text" placeholder="اسم الدولة" class="country-field">
+                    <div class="divider-line"></div>
                 </div>
-                <button class="back-btn" onclick="goBackToGrid()">العودة للشبكة</button>
+                
+                <div class="category-text">
+                    <p>أختر الفئة إلي بيها</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <div class="category-btn active" data-category="الموروث الشعبي">الموروث الشعبي</div>
+                    <div class="category-btn active" data-category="المناسبات السعودية">المناسبات السعودية</div>
+                    <div class="category-btn disabled" data-category="الاحتفال الشعبية">الاحتفال الشعبية</div>
+                    <div class="category-btn active" data-category="أكلت ومشروبات">أكلت ومشروبات</div>
+                    <div class="category-btn disabled" data-category="رجال وقادة">رجال وقادة</div>
+                    <div class="category-btn disabled" data-category="مدن ومحافظات">مدن ومحافظات</div>
+                    <div class="category-btn disabled" data-category="اجتمع فئتك الخاصة">اجتمع فئتك الخاصة</div>
+                </div>
             </div>
         </div>
     </div>

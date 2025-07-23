@@ -5,329 +5,250 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
-    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background-color: #e8e8e8;
+    height: 100vh;
+    overflow: hidden;
     direction: rtl;
-    text-align: right;
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    min-height: 100vh;
+/* تصميم الشرائح */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    transition: opacity 0.5s ease-in-out;
 }
 
-.page {
-    display: block;
-}
-
-.page.hidden {
+.slide.hidden {
     display: none;
 }
 
-/* شبكة الأسئلة */
-.questions-grid {
-    background: white;
+.slide-content {
+    width: 350px;
+    height: 600px;
+    background-color: #c5d4c5;
     border-radius: 20px;
-    padding: 30px;
+    position: relative;
+    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    border: 3px solid white;
 }
 
-.category-header {
-    background: white;
-    color: #333;
-    padding: 15px 10px;
+/* الجزء العلوي مع الشعار */
+.top-section {
+    height: 120px;
+    background-color: #c5d4c5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.logo-container {
+    width: 80px;
+    height: 80px;
+    background-color: white;
     border-radius: 15px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 16px;
-    border: 2px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.point-btn {
-    background: white;
-    color: #666;
-    border: 2px solid #e0e0e0;
+.logo-image {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* الجزء الأوسط */
+.middle-section {
+    height: 480px;
+    background-color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* تصميم الشريحة الأولى - اختيار نوع اللعبة */
+.game-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.game-title h1 {
+    font-size: 28px;
+    color: #4a6741;
+    font-weight: bold;
+}
+
+.game-options {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.game-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
     border-radius: 15px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 18px;
     cursor: pointer;
     transition: all 0.3s ease;
+    background-color: #f8f8f8;
 }
 
-.point-btn:hover {
-    background: #f8f9fa;
-    border-color: #7ba05b;
-    transform: translateY(-2px);
-}
-
-.point-btn.selected {
-    background: #7ba05b;
+.game-option.active {
+    background-color: #7a9471;
     color: white;
-    border-color: #7ba05b;
 }
 
-.point-btn.used {
-    background: #f0f0f0;
+.game-option.disabled {
+    background-color: #e0e0e0;
     color: #999;
     cursor: not-allowed;
     opacity: 0.6;
 }
 
-.point-btn.used:hover {
-    transform: none;
-    border-color: #e0e0e0;
-}
-
-/* صفحة السؤال */
-.question-card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.question-header {
-    background: #7ba05b;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    display: inline-block;
-}
-
-.question-image {
-    margin-bottom: 20px;
-}
-
-.question-image img {
-    max-width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.question-text {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 30px;
-    font-weight: bold;
-    line-height: 1.5;
-}
-
-.answer-options {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.answer-row {
-    display: flex;
-    gap: 15px;
-}
-
-.answer-btn {
-    flex: 1;
-    background: #f8f9fa;
-    border: 2px solid #e0e0e0;
-    padding: 15px 10px;
-    border-radius: 10px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.answer-btn:hover {
-    background: #e9ecef;
-    border-color: #7ba05b;
-}
-
-.answer-btn.selected {
-    background: #7ba05b;
-    color: white;
-    border-color: #7ba05b;
-}
-
-.answer-btn.correct {
-    background: #28a745;
-    color: white;
-    border-color: #28a745;
-}
-
-.answer-btn.wrong {
-    background: #dc3545;
-    color: white;
-    border-color: #dc3545;
-}
-
-/* صفحة النتيجة */
-.result-card {
-    background: white;
-    border-radius: 20px;
-    padding: 40px 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.result-message h2 {
-    font-size: 24px;
+.option-icon {
     margin-bottom: 15px;
 }
 
-.result-message p {
-    font-size: 16px;
+.people-icon {
+    width: 80px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.youth-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><g fill="%23ffffff"><circle cx="20" cy="15" r="8"/><circle cx="35" cy="15" r="8"/><circle cx="50" cy="15" r="8"/><circle cx="65" cy="15" r="8"/><circle cx="80" cy="15" r="8"/><rect x="15" y="25" width="10" height="25" rx="5"/><rect x="30" y="25" width="10" height="25" rx="5"/><rect x="45" y="25" width="10" height="25" rx="5"/><rect x="60" y="25" width="10" height="25" rx="5"/><rect x="75" y="25" width="10" height="25" rx="5"/></g></svg>');
+}
+
+.kids-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><g fill="%23999999"><circle cx="25" cy="20" r="6"/><circle cx="45" cy="20" r="6"/><circle cx="65" cy="20" r="6"/><rect x="22" y="28" width="6" height="20" rx="3"/><rect x="42" y="28" width="6" height="20" rx="3"/><rect x="62" y="28" width="6" height="20" rx="3"/></g></svg>');
+}
+
+.option-text {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* تصميم الشريحة الثانية - اختيار الفئات */
+.country-input {
+    width: 100%;
     margin-bottom: 30px;
-    line-height: 1.5;
 }
 
-.result-message.correct h2 {
-    color: #28a745;
-}
-
-.result-message.wrong h2 {
-    color: #dc3545;
-}
-
-.back-btn {
-    background: #7ba05b;
-    color: white;
+.country-field {
+    width: 100%;
+    padding: 15px;
     border: none;
-    padding: 15px 30px;
-    border-radius: 10px;
+    background-color: transparent;
     font-size: 16px;
+    text-align: center;
+    color: #4a6741;
+    outline: none;
+}
+
+.country-field::placeholder {
+    color: #7a9471;
+}
+
+.divider-line {
+    width: 80%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 10px auto;
+}
+
+.category-text {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.category-text p {
+    font-size: 16px;
+    color: #4a6741;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+}
+
+.category-btn {
+    padding: 15px 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.back-btn:hover {
-    background: #6a8f4a;
+.category-btn.active {
+    background-color: #7a9471;
+    color: white;
+}
+
+.category-btn.disabled {
+    background-color: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.category-btn.active:hover {
+    background-color: #6a8461;
     transform: translateY(-2px);
 }
 
-/* تأثيرات الحركة */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* تأثيرات تفاعلية */
+.game-option.active:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.questions-grid,
-.question-card,
-.result-card {
-    animation: fadeIn 0.6s ease-out;
-}
-
-.point-btn.selected {
-    animation: pulse 0.6s ease-in-out;
-}
-
-/* استجابة للشاشات الصغيرة */
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-    
-    .questions-grid {
-        padding: 20px;
-        gap: 10px;
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .category-header {
-        font-size: 14px;
-        padding: 10px 5px;
-    }
-    
-    .point-btn {
-        padding: 15px;
-        font-size: 16px;
-    }
-    
-    .question-card,
-    .result-card {
-        padding: 20px;
-    }
-    
-    .question-text {
-        font-size: 16px;
-    }
-    
-    .answer-row {
-        flex-direction: column;
-    }
-    
-    .answer-btn {
-        font-size: 13px;
-        padding: 12px 8px;
-    }
-}
-
+/* تصميم متجاوب */
 @media (max-width: 480px) {
-    .questions-grid {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 15px;
+    .slide-content {
+        width: 90%;
+        height: 90vh;
     }
     
-    .category-header {
+    .game-title h1 {
+        font-size: 24px;
+    }
+    
+    .option-text {
+        font-size: 16px;
+    }
+    
+    .categories-grid {
+        gap: 10px;
+    }
+    
+    .category-btn {
         font-size: 12px;
-        padding: 8px 5px;
-    }
-    
-    .point-btn {
-        padding: 12px;
-        font-size: 14px;
-    }
-    
-    .question-image img {
-        height: 150px;
-    }
-    
-    .question-text {
-        font-size: 14px;
-    }
-    
-    .answer-btn {
-        font-size: 12px;
-        padding: 10px 6px;
+        padding: 12px 8px;
+        min-height: 50px;
     }
 }
 
