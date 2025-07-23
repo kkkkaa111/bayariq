@@ -1,215 +1,292 @@
-// متغيرات عامة
-let teamCount = 2;
-let currentPage = 'challenge';
+// بيانات الأسئلة
+const questionsData = {
+    "الموروث الشعبي": {
+        100: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الفن+الشعبي",
+            question: "ما اسم الفن الشعبي الذي بالصورة ؟",
+            options: ["الدحة الشمالية", "العرضة", "الفروسية", "العرضة السعودية"],
+            correct: 0
+        },
+        200: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=التراث+الشعبي",
+            question: "في أي سنة تم الإعلان عن رؤية المملكة 2030 ؟",
+            options: ["2015", "2016", "2017", "2018"],
+            correct: 1
+        },
+        300: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الموروث+الثقافي",
+            question: "ما هو تاريخ يوم التأسيس ؟",
+            options: ["22 فبراير", "23 سبتمبر", "22 يناير", "23 فبراير"],
+            correct: 0
+        },
+        400: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=التراث+السعودي",
+            question: "ما اسم الأكلة التي بالصورة ؟",
+            options: ["العريكة", "القرصان", "الجميدة", "المضغوطة"],
+            correct: 0
+        }
+    },
+    "المناسبات السعودية": {
+        100: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=المناسبات+الوطنية",
+            question: "متى يصادف اليوم الوطني السعودي ؟",
+            options: ["22 سبتمبر", "23 سبتمبر", "24 سبتمبر", "25 سبتمبر"],
+            correct: 1
+        },
+        200: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الاحتفالات+السعودية",
+            question: "في أي عام تم توحيد المملكة ؟",
+            options: ["1930", "1931", "1932", "1933"],
+            correct: 2
+        },
+        300: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=التاريخ+السعودي",
+            question: "من هو مؤسس المملكة العربية السعودية ؟",
+            options: ["الملك عبدالعزيز", "الملك سعود", "الملك فيصل", "الملك خالد"],
+            correct: 0
+        },
+        400: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الرؤية+السعودية",
+            question: "ما هي رؤية المملكة العربية السعودية ؟",
+            options: ["رؤية 2025", "رؤية 2030", "رؤية 2035", "رؤية 2040"],
+            correct: 1
+        }
+    },
+    "أكلات ومشروبات": {
+        100: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الأكلات+الشعبية",
+            question: "ما اسم الأكلة التي بالصورة ؟",
+            options: ["العريكة", "القرصان", "الجميدة", "المضغوطة"],
+            correct: 0
+        },
+        200: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=المشروبات+التراثية",
+            question: "ما هو المشروب الشعبي المشهور في نجد ؟",
+            options: ["القهوة العربية", "الشاي الأحمر", "اللبن", "العصير"],
+            correct: 0
+        },
+        300: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الحلويات+الشعبية",
+            question: "ما اسم الحلوى الشعبية المشهورة ؟",
+            options: ["المعمول", "الكليجة", "القطايف", "البقلاوة"],
+            correct: 1
+        },
+        400: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الطبخ+التراثي",
+            question: "ما هي الطريقة التقليدية لطبخ الأرز ؟",
+            options: ["في القدر", "في التنور", "في الفرن", "على الفحم"],
+            correct: 1
+        }
+    },
+    "اللهجات السعودية": {
+        100: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=اللهجات+المحلية",
+            question: "ماذا تعني كلمة 'حنا' في اللهجة السعودية ؟",
+            options: ["نحن", "هنا", "الآن", "معنا"],
+            correct: 0
+        },
+        200: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الكلمات+الشعبية",
+            question: "ماذا تعني كلمة 'وش' ؟",
+            options: ["أين", "متى", "ماذا", "كيف"],
+            correct: 2
+        },
+        300: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=التعبيرات+المحلية",
+            question: "ماذا تعني كلمة 'يالله' ؟",
+            options: ["تعال", "اذهب", "هيا", "توقف"],
+            correct: 2
+        },
+        400: {
+            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=اللغة+المحلية",
+            question: "ماذا تعني كلمة 'زين' ؟",
+            options: ["جميل", "جيد", "حسن", "كل ما سبق"],
+            correct: 3
+        }
+    }
+};
 
-// عند تحميل الصفحة
+// متغيرات اللعبة
+let currentQuestion = null;
+let selectedAnswer = null;
+let usedQuestions = new Set();
+let currentScreen = 'grid';
+
+// انتظار تحميل الصفحة
 document.addEventListener('DOMContentLoaded', function() {
-    initializePage();
+    initializeGame();
+    setupEventListeners();
 });
 
-function initializePage() {
-    // إعداد أحداث الأزرار
-    setupEventListeners();
+function initializeGame() {
+    // إظهار شاشة الشبكة
+    showScreen('questions-grid-screen');
     
-    // إعداد العداد
-    updateTeamCounter();
+    // تحديث عداد الصفحات
+    updatePageCounter();
 }
 
 function setupEventListeners() {
-    // أزرار العداد
-    const decreaseBtn = document.querySelector('.counter-btn[onclick="decreaseTeam()"]');
-    const increaseBtn = document.querySelector('.counter-btn[onclick="increaseTeam()"]');
-    
-    if (decreaseBtn) {
-        decreaseBtn.addEventListener('click', decreaseTeam);
-    }
-    
-    if (increaseBtn) {
-        increaseBtn.addEventListener('click', increaseTeam);
-    }
-    
-    // زر البدء
-    const startBtn = document.querySelector('.start-btn');
-    if (startBtn) {
-        startBtn.addEventListener('click', startChallenge);
-    }
-    
-    // أزرار خيارات اللعبة
-    const gameOptions = document.querySelectorAll('.option-btn');
-    gameOptions.forEach(btn => {
+    // أزرار النقاط
+    const pointBtns = document.querySelectorAll('.point-btn');
+    pointBtns.forEach(btn => {
         btn.addEventListener('click', function() {
-            const option = this.textContent.trim();
-            selectGameOption(option);
+            if (!this.classList.contains('used')) {
+                const category = this.dataset.category;
+                const points = this.dataset.points;
+                showQuestion(category, points);
+                this.classList.add('used');
+            }
         });
     });
     
-    // أزرار الفئات
-    const categoryItems = document.querySelectorAll('.category-item');
-    categoryItems.forEach(item => {
-        if (!item.classList.contains('disabled')) {
-            item.addEventListener('click', function() {
-                toggleCategory(this);
-            });
-        }
+    // أزرار الإجابات
+    const answerBtns = document.querySelectorAll('.answer-btn');
+    answerBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            selectAnswer(this);
+        });
     });
-}
-
-function decreaseTeam() {
-    if (teamCount > 2) {
-        teamCount--;
-        updateTeamCounter();
-        updateTeamInputs();
-    }
-}
-
-function increaseTeam() {
-    if (teamCount < 10) {
-        teamCount++;
-        updateTeamCounter();
-        updateTeamInputs();
-    }
-}
-
-function updateTeamCounter() {
-    const counterDisplay = document.querySelector('.counter-display');
-    if (counterDisplay) {
-        counterDisplay.textContent = teamCount;
-    }
-}
-
-function updateTeamInputs() {
-    const teamInputsContainer = document.querySelector('.team-inputs');
-    if (!teamInputsContainer) return;
     
-    teamInputsContainer.innerHTML = '';
-    
-    for (let i = 1; i <= teamCount; i++) {
-        const inputDiv = document.createElement('div');
-        inputDiv.className = 'team-section';
-        inputDiv.innerHTML = `
-            <div class="team-label">الفريق ${i}:</div>
-            <input type="text" class="team-input" placeholder="اسم الفريق ${i}" required>
-        `;
-        teamInputsContainer.appendChild(inputDiv);
-    }
-}
-
-function startChallenge() {
-    // التحقق من ملء جميع الحقول
-    const teamInputs = document.querySelectorAll('.team-input');
-    let allFilled = true;
-    
-    teamInputs.forEach(input => {
-        if (!input.value.trim()) {
-            allFilled = false;
-            input.style.borderColor = '#dc3545';
-        } else {
-            input.style.borderColor = '#e0e0e0';
+    // النقر على أي مكان في شاشة السؤال للانتقال للنتيجة
+    const questionScreen = document.getElementById('question-screen');
+    questionScreen.addEventListener('click', function() {
+        if (selectedAnswer !== null) {
+            showResult();
         }
     });
     
-    if (!allFilled) {
-        alert('يرجى ملء جميع أسماء الفرق');
-        return;
-    }
-    
-    // حفظ أسماء الفرق
-    const teamNames = [];
-    teamInputs.forEach(input => {
-        teamNames.push(input.value.trim());
+    // النقر على أي مكان في شاشة النتيجة للعودة للشبكة
+    const resultScreen = document.getElementById('result-screen');
+    resultScreen.addEventListener('click', function() {
+        showScreen('questions-grid-screen');
+        resetQuestion();
+    });
+}
+
+function showScreen(screenId) {
+    // إخفاء جميع الشاشات
+    const screens = document.querySelectorAll('.screen');
+    screens.forEach(screen => {
+        screen.classList.add('hidden');
     });
     
-    localStorage.setItem('teamNames', JSON.stringify(teamNames));
-    localStorage.setItem('teamCount', teamCount);
-    
-    // الانتقال إلى صفحة خيارات اللعبة
-    showGameOptions();
-}
-
-function showGameOptions() {
-    const challengePage = document.getElementById('challengePage');
-    const gameOptionsPage = document.getElementById('gameOptionsPage');
-    
-    if (challengePage) challengePage.classList.add('hidden');
-    if (gameOptionsPage) gameOptionsPage.classList.remove('hidden');
-}
-
-function selectGameOption(option) {
-    if (option.includes('بدء اللعبة')) {
-        // الانتقال إلى صفحة الأسئلة
-        window.location.href = 'questions.html';
-    } else if (option.includes('تعديل الفئات')) {
-        // الانتقال إلى صفحة تعديل الفئات
-        showCategoriesPage();
-    }
-}
-
-function showCategoriesPage() {
-    const gameOptionsPage = document.getElementById('gameOptionsPage');
-    const categoriesPage = document.getElementById('categoriesPage');
-    
-    if (gameOptionsPage) gameOptionsPage.classList.add('hidden');
-    if (categoriesPage) categoriesPage.classList.remove('hidden');
-}
-
-function toggleCategory(categoryElement) {
-    if (categoryElement.classList.contains('disabled')) {
-        return;
+    // إظهار الشاشة المطلوبة
+    const targetScreen = document.getElementById(screenId);
+    if (targetScreen) {
+        targetScreen.classList.remove('hidden');
     }
     
-    categoryElement.classList.toggle('active');
-    
-    // حفظ الفئات المختارة
-    const activeCategories = [];
-    document.querySelectorAll('.category-item.active').forEach(item => {
-        activeCategories.push(item.textContent.trim());
-    });
-    
-    localStorage.setItem('selectedCategories', JSON.stringify(activeCategories));
+    currentScreen = screenId;
 }
 
-function goBackToGameOptions() {
-    const categoriesPage = document.getElementById('categoriesPage');
-    const gameOptionsPage = document.getElementById('gameOptionsPage');
+function showQuestion(category, points) {
+    const questionData = questionsData[category][points];
+    if (!questionData) return;
     
-    if (categoriesPage) categoriesPage.classList.add('hidden');
-    if (gameOptionsPage) gameOptionsPage.classList.remove('hidden');
-}
-
-// تأثيرات بصرية
-function addClickEffect(element) {
-    element.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-        element.style.transform = 'scale(1)';
-    }, 150);
-}
-
-// إضافة تأثيرات للأزرار
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('counter-btn') || 
-        e.target.classList.contains('start-btn') || 
-        e.target.classList.contains('option-btn')) {
-        addClickEffect(e.target);
-    }
-});
-
-// حفظ حالة الصفحة
-function savePageState() {
-    const state = {
-        teamCount: teamCount,
-        currentPage: currentPage
+    currentQuestion = {
+        category: category,
+        points: points,
+        data: questionData
     };
-    localStorage.setItem('challengeState', JSON.stringify(state));
+    
+    // تحديث محتوى السؤال
+    document.getElementById('question-img').src = questionData.image;
+    document.getElementById('question-text').textContent = questionData.question;
+    
+    // تحديث خيارات الإجابة
+    const answerBtns = document.querySelectorAll('.answer-btn');
+    answerBtns.forEach((btn, index) => {
+        btn.textContent = questionData.options[index];
+        btn.classList.remove('selected');
+    });
+    
+    // إظهار شاشة السؤال
+    showScreen('question-screen');
+    selectedAnswer = null;
 }
 
-// استرجاع حالة الصفحة
-function loadPageState() {
-    const savedState = localStorage.getItem('challengeState');
-    if (savedState) {
-        const state = JSON.parse(savedState);
-        teamCount = state.teamCount || 2;
-        currentPage = state.currentPage || 'challenge';
-        updateTeamCounter();
+function selectAnswer(answerBtn) {
+    // إزالة التحديد من جميع الأزرار
+    const answerBtns = document.querySelectorAll('.answer-btn');
+    answerBtns.forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    
+    // تحديد الإجابة المختارة
+    answerBtn.classList.add('selected');
+    selectedAnswer = Array.from(answerBtns).indexOf(answerBtn);
+}
+
+function showResult() {
+    if (!currentQuestion) return;
+    
+    const questionData = currentQuestion.data;
+    
+    // تحديث محتوى النتيجة
+    document.getElementById('result-img').src = questionData.image;
+    document.getElementById('result-text').textContent = questionData.question;
+    
+    // تحديث خيارات النتيجة
+    const resultBtns = document.querySelectorAll('.result-btn');
+    resultBtns.forEach((btn, index) => {
+        btn.textContent = questionData.options[index];
+        btn.classList.remove('correct', 'wrong');
+        
+        if (index === questionData.correct) {
+            btn.classList.add('correct');
+        } else if (index === selectedAnswer && selectedAnswer !== questionData.correct) {
+            btn.classList.add('wrong');
+        }
+    });
+    
+    // إظهار شاشة النتيجة
+    showScreen('result-screen');
+}
+
+function resetQuestion() {
+    currentQuestion = null;
+    selectedAnswer = null;
+}
+
+function updatePageCounter() {
+    // تحديث عداد الصفحات (يمكن تخصيصه حسب الحاجة)
+    const usedCount = usedQuestions.size;
+    const totalQuestions = 16; // 4 فئات × 4 أسئلة
+    
+    document.getElementById('current-page').textContent = usedCount + 11;
+    document.getElementById('total-pages').textContent = '19';
+    
+    document.getElementById('question-current-page').textContent = usedCount + 11;
+    document.getElementById('question-total-pages').textContent = '19';
+}
+
+function checkGameEnd() {
+    const totalQuestions = Object.keys(questionsData).length * 4;
+    if (usedQuestions.size >= totalQuestions) {
+        // إظهار شاشة الترتيب النهائي
+        setTimeout(() => {
+            showScreen('ranking-screen');
+        }, 2000);
     }
 }
+
+// إضافة تأثيرات تفاعلية
+document.addEventListener('DOMContentLoaded', function() {
+    // تأثيرات الحوم للأزرار
+    const pointBtns = document.querySelectorAll('.point-btn');
+    pointBtns.forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('used')) {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
+            }
+        });
+        
+        btn.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
+        });
+    });
+});
 
