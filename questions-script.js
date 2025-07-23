@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
     categoryBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             if (this.classList.contains('active')) {
-                // الانتقال مباشرة لصفحة التحدي
-                window.location.href = 'challenge.html';
+                // الانتقال لصفحة إعداد الفرق أولاً
+                window.location.href = 'team-setup.html';
             }
         });
         

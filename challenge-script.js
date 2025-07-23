@@ -2,25 +2,25 @@
 const questionsData = {
     "الموروث الشعبي": {
         100: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الفن+الشعبي",
+            image: "images/ardha.jpg",
             question: "ما اسم الفن الشعبي الذي بالصورة ؟",
             options: ["الدحة الشمالية", "العرضة", "الفروسية", "العرضة السعودية"],
-            correct: 0
+            correct: 3
         },
         200: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=التراث+الشعبي",
+            image: "images/heritage.webp",
             question: "في أي سنة تم الإعلان عن رؤية المملكة 2030 ؟",
             options: ["2015", "2016", "2017", "2018"],
             correct: 1
         },
         300: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الموروث+الثقافي",
+            image: "images/national.png",
             question: "ما هو تاريخ يوم التأسيس ؟",
             options: ["22 فبراير", "23 سبتمبر", "22 يناير", "23 فبراير"],
             correct: 0
         },
         400: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=التراث+السعودي",
+            image: "images/food.jpg",
             question: "ما اسم الأكلة التي بالصورة ؟",
             options: ["العريكة", "القرصان", "الجميدة", "المضغوطة"],
             correct: 0
@@ -28,25 +28,25 @@ const questionsData = {
     },
     "المناسبات السعودية": {
         100: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=المناسبات+الوطنية",
+            image: "images/national.png",
             question: "متى يصادف اليوم الوطني السعودي ؟",
             options: ["22 سبتمبر", "23 سبتمبر", "24 سبتمبر", "25 سبتمبر"],
             correct: 1
         },
         200: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الاحتفالات+السعودية",
+            image: "images/heritage.webp",
             question: "في أي عام تم توحيد المملكة ؟",
             options: ["1930", "1931", "1932", "1933"],
             correct: 2
         },
         300: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=التاريخ+السعودي",
+            image: "images/ardha.jpg",
             question: "من هو مؤسس المملكة العربية السعودية ؟",
             options: ["الملك عبدالعزيز", "الملك سعود", "الملك فيصل", "الملك خالد"],
             correct: 0
         },
         400: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الرؤية+السعودية",
+            image: "images/national.png",
             question: "ما هي رؤية المملكة العربية السعودية ؟",
             options: ["رؤية 2025", "رؤية 2030", "رؤية 2035", "رؤية 2040"],
             correct: 1
@@ -54,25 +54,25 @@ const questionsData = {
     },
     "أكلات ومشروبات": {
         100: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الأكلات+الشعبية",
+            image: "images/food.jpg",
             question: "ما اسم الأكلة التي بالصورة ؟",
             options: ["العريكة", "القرصان", "الجميدة", "المضغوطة"],
             correct: 0
         },
         200: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=المشروبات+التراثية",
+            image: "images/heritage.webp",
             question: "ما هو المشروب الشعبي المشهور في نجد ؟",
             options: ["القهوة العربية", "الشاي الأحمر", "اللبن", "العصير"],
             correct: 0
         },
         300: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الحلويات+الشعبية",
+            image: "images/food.jpg",
             question: "ما اسم الحلوى الشعبية المشهورة ؟",
             options: ["المعمول", "الكليجة", "القطايف", "البقلاوة"],
             correct: 1
         },
         400: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الطبخ+التراثي",
+            image: "images/heritage.webp",
             question: "ما هي الطريقة التقليدية لطبخ الأرز ؟",
             options: ["في القدر", "في التنور", "في الفرن", "على الفحم"],
             correct: 1
@@ -80,25 +80,25 @@ const questionsData = {
     },
     "اللهجات السعودية": {
         100: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=اللهجات+المحلية",
+            image: "images/heritage.webp",
             question: "ماذا تعني كلمة 'حنا' في اللهجة السعودية ؟",
             options: ["نحن", "هنا", "الآن", "معنا"],
             correct: 0
         },
         200: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=الكلمات+الشعبية",
+            image: "images/heritage.webp",
             question: "ماذا تعني كلمة 'وش' ؟",
             options: ["أين", "متى", "ماذا", "كيف"],
             correct: 2
         },
         300: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=التعبيرات+المحلية",
+            image: "images/heritage.webp",
             question: "ماذا تعني كلمة 'يالله' ؟",
             options: ["تعال", "اذهب", "هيا", "توقف"],
             correct: 2
         },
         400: {
-            image: "https://via.placeholder.com/400x200/7a9471/ffffff?text=اللغة+المحلية",
+            image: "images/heritage.webp",
             question: "ماذا تعني كلمة 'زين' ؟",
             options: ["جميل", "جيد", "حسن", "كل ما سبق"],
             correct: 3
@@ -108,6 +108,9 @@ const questionsData = {
 
 // متغيرات اللعبة
 let currentQuestion = null;
+let answeredQuestions = [];
+let totalQuestions = 16; // 4 فئات × 4 أسئلة
+let gameScore = 0;
 let selectedAnswer = null;
 let usedQuestions = new Set();
 let currentScreen = 'grid';
@@ -222,6 +225,19 @@ function showResult() {
     if (!currentQuestion) return;
     
     const questionData = currentQuestion.data;
+    const isCorrect = selectedAnswer === questionData.correct;
+    
+    // إضافة النتيجة للنقاط
+    if (isCorrect) {
+        gameScore += currentQuestion.points;
+    }
+    
+    // إضافة السؤال للأسئلة المجابة
+    answeredQuestions.push({
+        category: currentQuestion.category,
+        points: currentQuestion.points,
+        correct: isCorrect
+    });
     
     // تحديث محتوى النتيجة
     document.getElementById('result-img').src = questionData.image;
@@ -242,6 +258,13 @@ function showResult() {
     
     // إظهار شاشة النتيجة
     showScreen('result-screen');
+    
+    // التحقق من إكمال جميع الأسئلة
+    if (answeredQuestions.length >= 12) { // 3 فئات × 4 أسئلة
+        setTimeout(() => {
+            showFinalResults();
+        }, 3000);
+    }
 }
 
 function resetQuestion() {
@@ -289,4 +312,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+
+// دالة عرض النتائج النهائية
+function showFinalResults() {
+    showScreen('final-results');
+    
+    // حساب النتائج
+    const correctAnswers = answeredQuestions.filter(q => q.correct).length;
+    const totalAnswers = answeredQuestions.length;
+    const percentage = Math.round((correctAnswers / totalAnswers) * 100);
+    
+    // عرض النتائج
+    document.getElementById('final-score').textContent = `${gameScore} نقطة`;
+    document.getElementById('correct-count').textContent = `${correctAnswers} من ${totalAnswers}`;
+    document.getElementById('percentage').textContent = `${percentage}%`;
+    
+    // تحديد المركز بناءً على النسبة
+    let rank = "المركز الثالث";
+    if (percentage >= 90) rank = "المركز الأول";
+    else if (percentage >= 70) rank = "المركز الثاني";
+    
+    document.getElementById('final-rank').textContent = rank;
+}
 
