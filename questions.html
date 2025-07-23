@@ -1,149 +1,161 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بيارق - الأسئلة</title>
-    <link rel="stylesheet" href="questions-style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بيارق - لعبة ثقافية</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #e2e9e1;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      background: #d6ded0;
+      padding: 20px;
+      border-radius: 20px;
+    }
+    h2 {
+      color: #2c4d36;
+    }
+    .board {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .header, .cell {
+      background-color: white;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: bold;
+      color: #2c4d36;
+    }
+    .cell:hover {
+      background-color: #b9cdbc;
+      cursor: pointer;
+    }
+    .question-box {
+      display: none;
+      background-color: white;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 15px;
+    }
+    .question-box img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .options button {
+      background-color: #dce6d7;
+      border: none;
+      border-radius: 10px;
+      margin: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 45%;
+    }
+    .options button:hover {
+      background-color: #a8c0ab;
+    }
+  </style>
 </head>
 <body>
-    <!-- الشريحة الأولى - شاشة الترحيب -->
-    <div id="welcome-slide" class="slide">
-        <div class="slide-content">
-            <!-- الجزء العلوي مع الشعار -->
-            <div class="top-section">
-                <div class="logo-container">
-                    <img src="logo.jpg" alt="Bayareq Logo" class="logo-image">
-                </div>
-            </div>
-            
-            <!-- الجزء الأوسط مع النص الرئيسي -->
-            <div class="middle-section">
-                <div class="welcome-text">
-                    <h1>أرحب</h1>
-                    <p>البيارق لكم من أول ...</p>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <h2>لوحة البيانات</h2>
+    <div class="board">
+      <div class="header">أكلات ومشروبات</div>
+      <div class="header">المناسبات السعودية</div>
+      <div class="header">الموروث الشعبي</div>
+      <div class="header">اللهجات السعودية</div>
+      <div class="cell" onclick="showQuestion('food')">100</div>
+      <div class="cell" onclick="showQuestion('events')">100</div>
+      <div class="cell" onclick="showQuestion('heritage')">100</div>
+      <div class="cell" onclick="showQuestion('dialect')">100</div>
+      <div class="cell">200</div>
+      <div class="cell" onclick="showQuestion('vision')">200</div>
+      <div class="cell">200</div>
+      <div class="cell">200</div>
+      <div class="cell">300</div>
+      <div class="cell">300</div>
+      <div class="cell">300</div>
+      <div class="cell">300</div>
+      <div class="cell">400</div>
+      <div class="cell">400</div>
+      <div class="cell">400</div>
+      <div class="cell">400</div>
     </div>
 
-    <!-- الشريحة الثانية - شاشة تسجيل الدخول -->
-    <div id="login-slide" class="slide hidden">
-        <div class="slide-content">
-            <!-- الجزء العلوي مع الشعار -->
-            <div class="top-section">
-                <div class="logo-container">
-                    <img src="logo.jpg" alt="Bayareq Logo" class="logo-image">
-                </div>
-            </div>
-            
-            <!-- الجزء الأوسط مع النموذج -->
-            <div class="middle-section">
-                <div class="form-container">
-                    <div class="form-header">
-                        <p>تعرفك وتعرفنا</p>
-                    </div>
-                    
-                    <form class="login-form">
-                        <div class="input-group">
-                            <input type="email" placeholder="الإيميل" class="form-input">
-                        </div>
-                        
-                        <div class="input-group">
-                            <input type="password" placeholder="كلمة المرور" class="form-input">
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">أرحب، خلنا نتعرف عليك</button>
-                    </form>
-                </div>
-            </div>
-            
-            <!-- الجزء السفلي مع أيقونات التواصل الاجتماعي -->
-            <div class="bottom-section">
-                <div class="social-text">
-                    <p>للفزعة</p>
-                </div>
-                <div class="social-icons">
-                    <div class="social-icon instagram"></div>
-                    <div class="social-icon tiktok"></div>
-                    <div class="social-icon twitter"></div>
-                </div>
-            </div>
-        </div>
+    <div class="question-box" id="questionBox">
+      <img id="questionImage" src="" alt="image" />
+      <h3 id="questionText"></h3>
+      <div class="options" id="optionsContainer"></div>
     </div>
+  </div>
 
-    <!-- الشريحة الثالثة - اختيار نوع اللعبة -->
-    <div id="game-type-slide" class="slide hidden">
-        <div class="slide-content">
-            <!-- الجزء العلوي مع الشعار -->
-            <div class="top-section">
-                <div class="logo-container">
-                    <img src="logo.jpg" alt="Bayareq Logo" class="logo-image">
-                </div>
-            </div>
-            
-            <!-- الجزء الأوسط مع خيارات اللعبة -->
-            <div class="middle-section">
-                <div class="game-title">
-                    <h1>تلعب :</h1>
-                </div>
-                
-                <div class="game-options">
-                    <div class="game-option active" id="youth-option">
-                        <div class="option-icon">
-                            <div class="people-icon youth-icon"></div>
-                        </div>
-                        <div class="option-text">بيارق مع الشباب</div>
-                    </div>
-                    
-                    <div class="game-option disabled" id="kids-option">
-                        <div class="option-icon">
-                            <div class="people-icon kids-icon"></div>
-                        </div>
-                        <div class="option-text">بيارق أولادين</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <script>
+    const questions = {
+      heritage: {
+        image: "https://upload.wikimedia.org/wikipedia/commons/2/2d/Ardha_saudi_dance.jpg",
+        text: "ما اسم الفن الشعبي الذي بالصورة؟",
+        options: ["العرضة الجنوبية", "العرضة السعودية", "الدحة الشمالية", "الفزوعي"],
+        correct: "العرضة السعودية"
+      },
+      events: {
+        image: "https://www.wafyapp.com/uploads/posts/1677585350.jpg",
+        text: "ما هو تاريخ يوم التأسيس؟",
+        options: ["٢٢ فبراير", "١٢ يناير", "٢٣ سبتمبر", "١٣ أكتوبر"],
+        correct: "٢٢ فبراير"
+      },
+      food: {
+        image: "https://cdn.salla.sa/BqKWO/E4o3vK73eAnTXG3Qg8oHMXU5sRrJr2OUvR6z6vCE.jpg",
+        text: "ما اسم الأكلة التي بالصورة؟",
+        options: ["القرصان", "العريكة", "العصيدة", "المشغوثة"],
+        correct: "القرصان"
+      },
+      vision: {
+        image: "https://www.alarabiya.net/.image/t_share/MTg3NjM3NzEzMzc2NTQ5NzI0/vision-2030.jpg",
+        text: "في أي سنة تم الإعلان عن رؤية المملكة 2030؟",
+        options: ["2014", "2015", "2016", "2018"],
+        correct: "2016"
+      },
+      dialect: {
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Saudi_people_at_Jenadriyah_Festival_01.jpg/800px-Saudi_people_at_Jenadriyah_Festival_01.jpg",
+        text: "ما معنى كلمة (هرج)؟",
+        options: ["كلام", "مشي", "صوت", "ضحك"],
+        correct: "كلام"
+      }
+    };
 
-    <!-- الشريحة الرابعة - اختيار الفئات -->
-    <div id="categories-slide" class="slide hidden">
-        <div class="slide-content">
-            <!-- الجزء العلوي مع الشعار -->
-            <div class="top-section">
-                <div class="logo-container">
-                    <img src="logo.jpg" alt="Bayareq Logo" class="logo-image">
-                </div>
-            </div>
-            
-            <!-- الجزء الأوسط مع الفئات -->
-            <div class="middle-section">
-                <div class="country-input">
-                    <p class="input-label">اسم الجولة</p>
-                    <input type="text" placeholder="ادخل اسم الجولة" class="country-field">
-                </div>
-                
-                <div class="category-text">
-                    <p>أختر الفئة التي تريدها</p>
-                </div>
-                
-                <div class="categories-grid">
-                    <div class="category-btn active" data-category="الموروث الشعبي">الموروث الشعبي</div>
-                    <div class="category-btn active" data-category="المناسبات السعودية">المناسبات السعودية</div>
-                    <div class="category-btn disabled" data-category="الأمثال الشعبية">الأمثال الشعبية</div>
-                    <div class="category-btn disabled" data-category="لهجات والمفردات">لهجات والمفردات</div>
-                    <div class="category-btn disabled" data-category="رجال وقادة">رجال وقادة</div>
-                    <div class="category-btn active" data-category="أكلات ومشروبات">أكلات ومشروبات</div>
-                    <div class="category-btn disabled" data-category="مدن ومحافظات">مدن ومحافظات</div>
-                    <div class="category-btn disabled" data-category="اصنع فئتك الخاصة">اصنع فئتك الخاصة</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    function showQuestion(key) {
+      const q = questions[key];
+      document.getElementById("questionImage").src = q.image;
+      document.getElementById("questionText").textContent = q.text;
 
-    <script src="database.js"></script>
-    <script src="questions-script.js"></script>
+      const opts = document.getElementById("optionsContainer");
+      opts.innerHTML = "";
+      q.options.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.onclick = () => {
+          if (opt === q.correct) {
+            alert("صحيح ✅");
+            document.getElementById("questionBox").style.display = "none";
+          } else {
+            alert("خطأ - ابشر بالعوض ❌");
+          }
+        };
+        opts.appendChild(btn);
+      });
+
+      document.getElementById("questionBox").style.display = "block";
+    }
+  </script>
 </body>
 </html>
-
