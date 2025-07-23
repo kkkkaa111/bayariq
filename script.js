@@ -1,30 +1,33 @@
 // انتظار تحميل الصفحة
-document.addEventListener(\'DOMContentLoaded\', function() {
-    const welcomeSlide = document.getElementById(\'welcome-slide\');
-    const loginSlide = document.getElementById(\'login-slide\');
-    const loginForm = document.querySelector(\'.login-form\');
+document.addEventListener('DOMContentLoaded', function() {
+    const welcomeSlide = document.getElementById('welcome-slide');
+    const loginSlide = document.getElementById('login-slide');
+    const loginForm = document.querySelector('.login-form');
     
     // إخفاء الشريحة الأولى وإظهار الثانية بعد 3 ثوانٍ
     setTimeout(function() {
-        welcomeSlide.classList.add(\'hidden\');
-        loginSlide.classList.remove(\'hidden\');
+        if (welcomeSlide) {
+            welcomeSlide.classList.add('hidden');
+        }
+        if (loginSlide) {
+            loginSlide.classList.remove('hidden');
+        }
     }, 3000);
     
     // التعامل مع نموذج تسجيل الدخول
     if (loginForm) {
-        loginForm.addEventListener(\'submit\', function(e) {
+        loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const email = document.querySelector(\'input[type="email"]\').value;
-            const password = document.querySelector(\'input[type="password"]\').value;
-                            if (!email || !password) {
-                // console.log("يرجى ملء جميع الحقول");
+            const email = document.querySelector('input[type="email"]').value;
+            const password = document.querySelector('input[type="password"]').value;
+            
+            if (!email || !password) {
                 return;
             }
             
             // التحقق من صحة البريد الإلكتروني
             if (!bayareqDB.validateEmail(email)) {
-                // console.log("يرجى إدخال بريد إلكتروني صحيح");
                 return;
             }
             
@@ -32,10 +35,7 @@ document.addEventListener(\'DOMContentLoaded\', function() {
             const loginResult = bayareqDB.loginVisitor(email, password);
             
             if (loginResult.success) {
-                // تسجيل الدخول نجح
-                // console.log("مرحباً بك! تم تسجيل الدخول بنجاح");
-                
-                // الانتقال إلى صفحة الألعاب
+                // تسجيل الدخول نجح - الانتقال إلى صفحة الألعاب
                 window.location.href = 'games.html';
             } else {
                 // فشل تسجيل الدخول - محاولة إنشاء حساب جديد
@@ -47,46 +47,37 @@ document.addEventListener(\'DOMContentLoaded\', function() {
                 
                 if (registerResult.success) {
                     // تم إنشاء الحساب بنجاح
-                    // console.log("تم إنشاء حساب جديد وتسجيل الدخول بنجاح!");
-                    
                     // تسجيل الدخول تلقائياً
                     bayareqDB.loginVisitor(email, password);
                     
                     // الانتقال إلى صفحة الألعاب
                     window.location.href = 'games.html';
-                } else {
-                    console.error('حدث خطأ: ' + registerResult.error);
                 }
-            }     }style.transform = \'scale(1.02)\';
+            }
+        });
+    }
+    
+    // إضافة تأثيرات تفاعلية للحقول
+    const inputs = document.querySelectorAll(".form-input");
+    
+    inputs.forEach(input => {
+        input.addEventListener("focus", function() {
+            this.style.backgroundColor = "#b8c8b8";
+            this.style.transform = "scale(1.02)";
         });
         
-        input.addEventListener(\'blur\', function() {
-            this.style.backgroundColor = \'#c5d4c5\';
-            this.style.transform = \'scale(1)\';
+        input.addEventListener("blur", function() {
+            this.style.backgroundColor = "#c5d4c5";
+            this.style.transform = "scale(1)";
         });
     });
     
     // إضافة تأثيرات للأيقونات الاجتماعية
-    const socialIcons = document.querySelectorAll(\'.social-icon\');
+    const socialIcons = document.querySelectorAll('.social-icon');
     
     socialIcons.forEach(icon => {
-        icon.addEventListener(\'click\', function() {
+        icon.addEventListener('click', function() {
             // يمكن إضافة روابط فعلية هنا
-            console.log(\'تم النقر على أيقونة التواصل الاجتماعي\');
         });
     });
-    
-    // إضافة تأثيرات تفاعلية للحقول
-    const inputs = document.querySelectorAll(\".form-input\");
-    
-    inputs.forEach(input => {
-        input.addEventListener(\"focus\", function() {
-            this.style.backgroundColor = \"#b8c8b8\";
-            this.style.transform = \"scale(1.02)\";
-        });
-        
-        input.addEventListener(\"blur\", function() {
-            this.style.backgroundColor = \"#c5d4c5\";
-            this.style.transform = \"scale(1)\";
-        });
-    });
+});
