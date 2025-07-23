@@ -31,30 +31,27 @@ body {
 
 .slide-content {
     width: 350px;
-    height: 700px;
+    height: 600px;
     background-color: #c5d4c5;
     border-radius: 20px;
     position: relative;
-    overflow-y: auto;
+    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* الجزء العلوي مع الشعار */
 .top-section {
-    height: 100px;
+    height: 120px;
     background-color: #c5d4c5;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    padding: 20px;
 }
 
 .logo-container {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     background-color: white;
     border-radius: 15px;
     display: flex;
@@ -64,30 +61,153 @@ body {
 }
 
 .logo-image {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
 }
 
 /* الجزء الأوسط */
 .middle-section {
+    height: 360px;
     background-color: white;
-    padding: 20px 15px;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 600px;
+    justify-content: center;
 }
 
-/* قسم اختيار نوع اللعبة */
-.game-section {
+/* الجزء السفلي */
+.bottom-section {
+    height: 120px;
+    background-color: #c5d4c5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* تصميم شريحة الترحيب */
+.welcome-text {
+    text-align: center;
+}
+
+.welcome-text h1 {
+    font-size: 36px;
+    color: #4a6741;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.welcome-text p {
+    font-size: 18px;
+    color: #6a8461;
+}
+
+/* تصميم شريحة تسجيل الدخول */
+.form-container {
     width: 100%;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #f0f0f0;
+    max-width: 280px;
 }
 
-/* تصميم الشريحة الأولى - اختيار نوع اللعبة */
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header p {
+    font-size: 18px;
+    color: #4a6741;
+    font-weight: bold;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #c5d4c5;
+    font-size: 16px;
+    text-align: center;
+    color: #4a6741;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+    color: #7a9471;
+}
+
+.submit-btn {
+    padding: 15px;
+    background-color: #d4a574;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #c49660;
+    transform: translateY(-2px);
+}
+
+/* أيقونات التواصل الاجتماعي */
+.social-text {
+    margin-bottom: 15px;
+}
+
+.social-text p {
+    font-size: 16px;
+    color: #4a6741;
+    font-weight: bold;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.social-icon.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-icon.tiktok {
+    background-color: #000;
+}
+
+.social-icon.twitter {
+    background-color: #1da1f2;
+}
+
+/* تصميم شريحة اختيار اللعبة */
 .game-title {
     text-align: center;
     margin-bottom: 40px;
@@ -155,12 +275,7 @@ body {
     text-align: center;
 }
 
-/* قسم الفئات */
-.categories-section {
-    width: 100%;
-}
-
-/* تصميم الشريحة الثانية - اختيار الفئات */
+/* تصميم شريحة اختيار الفئات */
 .country-input {
     width: 100%;
     margin-bottom: 30px;
@@ -188,10 +303,6 @@ body {
 
 .country-field::placeholder {
     color: #999;
-}
-
-.divider-line {
-    display: none;
 }
 
 .category-text {
@@ -277,8 +388,17 @@ body {
     }
     
     .middle-section {
-        height: calc(90vh - 100px);
+        height: calc(90vh - 220px);
         padding: 20px 15px;
+    }
+    
+    .bottom-section {
+        height: 120px;
+        padding: 15px;
+    }
+    
+    .welcome-text h1 {
+        font-size: 28px;
     }
     
     .game-title h1 {
@@ -340,6 +460,10 @@ body {
     
     .middle-section {
         padding: 15px 10px;
+    }
+    
+    .welcome-text h1 {
+        font-size: 24px;
     }
     
     .game-title h1 {

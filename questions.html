@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="questions-style.css">
 </head>
 <body>
-    <!-- الشريحة الموحدة -->
-    <div id="unified-slide" class="slide">
+    <!-- الشريحة الأولى - شاشة الترحيب -->
+    <div id="welcome-slide" class="slide">
         <div class="slide-content">
             <!-- الجزء العلوي مع الشعار -->
             <div class="top-section">
@@ -17,57 +17,132 @@
                 </div>
             </div>
             
-            <!-- الجزء الأوسط -->
+            <!-- الجزء الأوسط مع النص الرئيسي -->
             <div class="middle-section">
-                <!-- قسم اختيار نوع اللعبة -->
-                <div class="game-section">
-                    <div class="game-title">
-                        <h1>تلعب :</h1>
+                <div class="welcome-text">
+                    <h1>أرحب</h1>
+                    <p>البيارق لكم من أول ...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الشريحة الثانية - شاشة تسجيل الدخول -->
+    <div id="login-slide" class="slide hidden">
+        <div class="slide-content">
+            <!-- الجزء العلوي مع الشعار -->
+            <div class="top-section">
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Bayareq Logo" class="logo-image">
+                </div>
+            </div>
+            
+            <!-- الجزء الأوسط مع النموذج -->
+            <div class="middle-section">
+                <div class="form-container">
+                    <div class="form-header">
+                        <p>تعرفك وتعرفنا</p>
                     </div>
                     
-                    <div class="game-options">
-                        <div class="game-option active" id="youth-option">
-                            <div class="option-icon">
-                                <div class="people-icon youth-icon"></div>
-                            </div>
-                            <div class="option-text">بيارق مع الشباب</div>
+                    <form class="login-form">
+                        <div class="input-group">
+                            <input type="email" placeholder="الإيميل" class="form-input">
                         </div>
                         
-                        <div class="game-option disabled" id="kids-option">
-                            <div class="option-icon">
-                                <div class="people-icon kids-icon"></div>
-                            </div>
-                            <div class="option-text">بيارق أولادين</div>
+                        <div class="input-group">
+                            <input type="password" placeholder="كلمة المرور" class="form-input">
                         </div>
-                    </div>
+                        
+                        <button type="submit" class="submit-btn">أرجب، خلنا نتعرف عليك</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- الجزء السفلي مع أيقونات التواصل الاجتماعي -->
+            <div class="bottom-section">
+                <div class="social-text">
+                    <p>لنتواصل</p>
+                </div>
+                <div class="social-icons">
+                    <div class="social-icon instagram"></div>
+                    <div class="social-icon tiktok"></div>
+                    <div class="social-icon twitter"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الشريحة الثالثة - اختيار نوع اللعبة -->
+    <div id="game-type-slide" class="slide hidden">
+        <div class="slide-content">
+            <!-- الجزء العلوي مع الشعار -->
+            <div class="top-section">
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Bayareq Logo" class="logo-image">
+                </div>
+            </div>
+            
+            <!-- الجزء الأوسط مع خيارات اللعبة -->
+            <div class="middle-section">
+                <div class="game-title">
+                    <h1>تلعب :</h1>
                 </div>
                 
-                <!-- قسم اسم الجولة والفئات -->
-                <div class="categories-section">
-                    <div class="country-input">
-                        <p class="input-label">اسم الجولة</p>
-                        <input type="text" placeholder="ادخل اسم الجولة" class="country-field">
+                <div class="game-options">
+                    <div class="game-option active" id="youth-option">
+                        <div class="option-icon">
+                            <div class="people-icon youth-icon"></div>
+                        </div>
+                        <div class="option-text">بيارق مع الشباب</div>
                     </div>
                     
-                    <div class="category-text">
-                        <p>أختر الفئة التي تريدها</p>
-                    </div>
-                    
-                    <div class="categories-grid">
-                        <div class="category-btn active" data-category="الموروث الشعبي">الموروث الشعبي</div>
-                        <div class="category-btn active" data-category="المناسبات السعودية">المناسبات السعودية</div>
-                        <div class="category-btn disabled" data-category="الأمثال الشعبية">الأمثال الشعبية</div>
-                        <div class="category-btn disabled" data-category="لهجات والمفردات">لهجات والمفردات</div>
-                        <div class="category-btn disabled" data-category="رجال وقادة">رجال وقادة</div>
-                        <div class="category-btn active" data-category="أكلات ومشروبات">أكلات ومشروبات</div>
-                        <div class="category-btn disabled" data-category="مدن ومحافظات">مدن ومحافظات</div>
-                        <div class="category-btn disabled" data-category="اصنع فئتك الخاصة">اصنع فئتك الخاصة</div>
+                    <div class="game-option disabled" id="kids-option">
+                        <div class="option-icon">
+                            <div class="people-icon kids-icon"></div>
+                        </div>
+                        <div class="option-text">بيارق أولادين</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- الشريحة الرابعة - اختيار الفئات -->
+    <div id="categories-slide" class="slide hidden">
+        <div class="slide-content">
+            <!-- الجزء العلوي مع الشعار -->
+            <div class="top-section">
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Bayareq Logo" class="logo-image">
+                </div>
+            </div>
+            
+            <!-- الجزء الأوسط مع الفئات -->
+            <div class="middle-section">
+                <div class="country-input">
+                    <p class="input-label">اسم الجولة</p>
+                    <input type="text" placeholder="ادخل اسم الجولة" class="country-field">
+                </div>
+                
+                <div class="category-text">
+                    <p>أختر الفئة التي تريدها</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <div class="category-btn active" data-category="الموروث الشعبي">الموروث الشعبي</div>
+                    <div class="category-btn active" data-category="المناسبات السعودية">المناسبات السعودية</div>
+                    <div class="category-btn disabled" data-category="الأمثال الشعبية">الأمثال الشعبية</div>
+                    <div class="category-btn disabled" data-category="لهجات والمفردات">لهجات والمفردات</div>
+                    <div class="category-btn disabled" data-category="رجال وقادة">رجال وقادة</div>
+                    <div class="category-btn active" data-category="أكلات ومشروبات">أكلات ومشروبات</div>
+                    <div class="category-btn disabled" data-category="مدن ومحافظات">مدن ومحافظات</div>
+                    <div class="category-btn disabled" data-category="اصنع فئتك الخاصة">اصنع فئتك الخاصة</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="database.js"></script>
     <script src="questions-script.js"></script>
 </body>
 </html>
