@@ -4,13 +4,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginSlide = document.getElementById('login-slide');
     const loginForm = document.querySelector('.login-form');
     
+    console.log('Page loaded, starting timer...');
+    
     // إخفاء الشريحة الأولى وإظهار الثانية بعد 3 ثوانٍ
     setTimeout(function() {
+        console.log('3 seconds passed, switching slides...');
         if (welcomeSlide) {
-            welcomeSlide.classList.add('hidden');
+            welcomeSlide.style.display = 'none';
+            console.log('Welcome slide hidden');
         }
         if (loginSlide) {
             loginSlide.classList.remove('hidden');
+            loginSlide.style.display = 'flex';
+            console.log('Login slide shown');
         }
     }, 3000);
     
