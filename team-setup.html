@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيارق - إعداد الفرق</title>
+    <link rel="stylesheet" href="team-setup-style.css">
+</head>
+<body>
+    <div class="slide">
+        <div class="slide-content">
+            <!-- الجزء العلوي مع الشعار -->
+            <div class="top-section">
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Bayareq Logo" class="logo-image">
+                </div>
+            </div>
+            
+            <!-- الجزء الأوسط -->
+            <div class="middle-section">
+                <div class="challenge-title">
+                    <h1>التحدي بين من ومن</h1>
+                </div>
+                
+                <!-- عداد الفرق -->
+                <div class="team-counter">
+                    <button class="counter-btn minus" id="minusBtn">-</button>
+                    <div class="counter-display" id="teamCount">2</div>
+                    <button class="counter-btn plus" id="plusBtn">+</button>
+                </div>
+                
+                <!-- حقول الفرق -->
+                <div class="teams-container" id="teamsContainer">
+                    <div class="team-input">
+                        <input type="text" placeholder="الفريق الأول" class="team-field">
+                        <div class="divider-line"></div>
+                    </div>
+                    
+                    <div class="team-input">
+                        <input type="text" placeholder="الفريق الثاني" class="team-field">
+                        <div class="divider-line"></div>
+                    </div>
+                </div>
+                
+                <!-- زر البدء -->
+                <div class="start-section">
+                    <button class="start-btn" id="startBtn">البدء في انتظارك</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="team-setup-script.js"></script>
+</body>
+</html>
+
