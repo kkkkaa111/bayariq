@@ -1,153 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بيارق - التحدي</title>
-    <link rel="stylesheet" href="challenge-style.css">
-</head>
-<body>
-    <!-- شاشة شبكة الأسئلة -->
-    <div id="questions-grid-screen" class="screen">
-        <div class="screen-content">
-            <!-- الجزء العلوي مع عداد الصفحات -->
-            <div class="top-section">
-                <div class="page-counter">
-                    <span id="current-page">11</span> من <span id="total-pages">19</span>
-                    <div class="counter-icon">📄</div>
-                </div>
-            </div>
-            
-            <!-- شبكة الفئات والنقاط -->
-            <div class="categories-grid">
-                <div class="category-column">
-                    <div class="category-header">اللهجات السعودية</div>
-                    <div class="point-btn" data-category="اللهجات السعودية" data-points="400">400</div>
-                    <div class="point-btn" data-category="اللهجات السعودية" data-points="300">300</div>
-                    <div class="point-btn" data-category="اللهجات السعودية" data-points="200">200</div>
-                    <div class="point-btn" data-category="اللهجات السعودية" data-points="100">100</div>
-                </div>
-                
-                <div class="category-column">
-                    <div class="category-header">الموروث الشعبي</div>
-                    <div class="point-btn" data-category="الموروث الشعبي" data-points="400">400</div>
-                    <div class="point-btn" data-category="الموروث الشعبي" data-points="300">300</div>
-                    <div class="point-btn selected" data-category="الموروث الشعبي" data-points="200">200</div>
-                    <div class="point-btn" data-category="الموروث الشعبي" data-points="100">100</div>
-                </div>
-                
-                <div class="category-column">
-                    <div class="category-header">المناسبات السعودية</div>
-                    <div class="point-btn" data-category="المناسبات السعودية" data-points="400">400</div>
-                    <div class="point-btn" data-category="المناسبات السعودية" data-points="300">300</div>
-                    <div class="point-btn" data-category="المناسبات السعودية" data-points="200">200</div>
-                    <div class="point-btn" data-category="المناسبات السعودية" data-points="100">100</div>
-                </div>
-                
-                <div class="category-column">
-                    <div class="category-header">أكلات ومشروبات</div>
-                    <div class="point-btn" data-category="أكلات ومشروبات" data-points="400">400</div>
-                    <div class="point-btn" data-category="أكلات ومشروبات" data-points="300">300</div>
-                    <div class="point-btn" data-category="أكلات ومشروبات" data-points="200">200</div>
-                    <div class="point-btn" data-category="أكلات ومشروبات" data-points="100">100</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- شاشة عرض السؤال -->
-    <div id="question-screen" class="screen hidden">
-        <div class="screen-content">
-            <!-- الجزء العلوي مع عداد الصفحات -->
-            <div class="top-section">
-                <div class="page-counter">
-                    <span id="question-current-page">11</span> من <span id="question-total-pages">19</span>
-                    <div class="counter-icon">📄</div>
-                </div>
-            </div>
-            
-            <!-- محتوى السؤال -->
-            <div class="question-content">
-                <div class="question-card">
-                    <div class="question-header">الموقف</div>
-                    
-                    <div class="question-image">
-                        <img id="question-img" src="" alt="صورة السؤال">
-                    </div>
-                    
-                    <div class="question-text" id="question-text">
-                        ما اسم الفن الشعبي الذي بالصورة ؟
-                    </div>
-                    
-                    <div class="answer-options">
-                        <div class="answer-btn" data-answer="أ">الدحة الشمالية</div>
-                        <div class="answer-btn" data-answer="ب">العرضة</div>
-                        <div class="answer-btn" data-answer="ج">الفروسية</div>
-                        <div class="answer-btn" data-answer="د">العرضة السعودية</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- شاشة النتيجة -->
-    <div id="result-screen" class="screen hidden">
-        <div class="screen-content">
-            <div class="result-content">
-                <div class="result-card">
-                    <div class="result-header">النتيجة</div>
-                    
-                    <div class="result-image">
-                        <img id="result-img" src="" alt="صورة النتيجة">
-                    </div>
-                    
-                    <div class="result-text" id="result-text">
-                        ما اسم الفن الشعبي الذي بالصورة ؟
-                    </div>
-                    
-                    <div class="result-options">
-                        <div class="result-btn correct" data-answer="أ">الدحة الشمالية</div>
-                        <div class="result-btn" data-answer="ب">العرضة</div>
-                        <div class="result-btn" data-answer="ج">الفروسية</div>
-                        <div class="result-btn" data-answer="د">العرضة السعودية</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- شاشة الترتيب النهائي -->
-    <div id="ranking-screen" class="screen hidden">
-        <div class="screen-content">
-            <div class="ranking-content">
-                <div class="ranking-header">
-                    <div class="saudi-flag">🇸🇦</div>
-                    <div class="ranking-title">
-                        <p>يظهر هنا أفار الكلمة هدي</p>
-                        <p>ورتبة الأول مباشرة</p>
-                    </div>
-                </div>
-                
-                <div class="podium">
-                    <div class="podium-place second">
-                        <div class="place-number">2</div>
-                        <div class="place-label">نتساهل البيرق</div>
-                    </div>
-                    
-                    <div class="podium-place first">
-                        <div class="place-number">1</div>
-                        <div class="place-label">والثاموس</div>
-                    </div>
-                    
-                    <div class="podium-place third">
-                        <div class="place-number">3</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="challenge-script.js"></script>
-</body>
-</html>
-
